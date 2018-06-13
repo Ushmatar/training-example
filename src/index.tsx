@@ -3,8 +3,6 @@ import * as ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { AppContainer } from 'react-hot-loader'
 
-import '../assets/sass/index.scss'
-
 import { RootApp } from './routers'
 import { configureStore } from './store'
 
