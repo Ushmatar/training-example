@@ -1,0 +1,19 @@
+{
+  "name": "training-example",
+  "version": "1.0.0",
+  "description": "Training Example",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ushmatar/training-example.git"
+  },
+  "author": "Lauri Telama",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ushmatar/training-example/issues"
+  },
+  "homepage": "https://github.com/Ushmatar/training-example#readme"
+}
