@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Ushmatar/training-example/issues"
   },
-  "homepage": "https://github.com/Ushmatar/training-example#readme"
+  "homepage": "https://github.com/Ushmatar/training-example#readme",
+  "devDependencies": {
+    "webpack": "^4.12.0"
+  }
 }
