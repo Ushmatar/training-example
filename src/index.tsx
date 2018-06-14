@@ -8,7 +8,7 @@ import { configureStore } from './store'
 
 const store = configureStore()
 
-const renderApp = (Root: any) => {
+const renderApp = (Root: () => JSX.Element) => {
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>
