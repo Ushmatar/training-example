@@ -7,7 +7,10 @@ const plugins = [
   new webpack.NoEmitOnErrorsPlugin()
 ]
 
-export default () => ({
+const defaultEnv = { dev: true }
+
+export default (env = defaultEnv) => ({
+  mode: 'development',
   entry: [
     'babel-polyfill',
     'react-hot-loader/patch',
@@ -37,14 +40,14 @@ export default () => ({
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
-        use: ['react-hot-loader/webpack'].concat([
+        use: [
           {
             loader: 'ts-loader',
             options: {
               transpileOnly: true
             }
           }
-        ])
+        ]
       },
       {
         // ES& modules

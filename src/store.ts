@@ -1,10 +1,9 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import { routerMiddleware } from 'react-router-redux'
 import createHistory from 'history/createBrowserHistory'
+import reducers from 'reducers'
 
 export const history = createHistory()
-
-import reducers from 'reducers'
 
 const composeEnhancers: typeof compose =
   (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
@@ -17,8 +16,8 @@ export const store = createStore(
 
 const handleHot = (hmr: any, store: any) => {
   if (hmr) {
-    hmr.accept('../reducers', () => {
-      store.replaceReducer(require('../reducers'))
+    hmr.accept('reducers', () => {
+      store.replaceReducer(require('reducers'))
     })
   }
 }
