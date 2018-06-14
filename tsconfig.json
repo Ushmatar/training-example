@@ -23,6 +23,7 @@
     "react-dom",
     "react-redux",
     "react-router",
+    "react-router-redux",
     "recompose"
   ],
   "include": ["src/**/*"],
