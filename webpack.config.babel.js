@@ -7,9 +7,7 @@ const plugins = [
   new webpack.NoEmitOnErrorsPlugin()
 ]
 
-const defaultEnv = { dev: true }
-
-export default (env = defaultEnv) => ({
+export default () => ({
   mode: 'development',
   entry: [
     'babel-polyfill',

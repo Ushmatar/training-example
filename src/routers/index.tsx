@@ -1,20 +1,19 @@
 import 'rxjs'
 import * as React from 'react'
 import { Route, Switch } from 'react-router-dom'
+import { HomeView } from 'views/home'
 
-import * as RRR from 'react-router-redux'
+import { ConnectedRouter } from 'connected-react-router'
 import { history } from '../store'
 
 export const RootApp = () => {
   return (
-    <RRR.ConnectedRouter history={history}>
-      <div>
-        <div className="app-content">
-          <Switch>
-            <Route exact path="/" component={() => <div>Lul</div>} />
-          </Switch>
-        </div>
+    <ConnectedRouter history={history}>
+      <div className="app-content">
+        <Switch>
+          <Route exact path="/" component={HomeView} />
+        </Switch>
       </div>
-    </RRR.ConnectedRouter>
+    </ConnectedRouter>
   )
 }

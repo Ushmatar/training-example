@@ -1,20 +1,25 @@
 import { createStore, applyMiddleware, compose } from 'redux'
-import { routerMiddleware } from 'react-router-redux'
+import { connectRouter, routerMiddleware } from 'connected-react-router'
 import createHistory from 'history/createBrowserHistory'
 import reducers from 'reducers'
 
 export const history = createHistory()
 
-const composeEnhancers: typeof compose =
+export const composeEnhancers: typeof compose =
   (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-// Middlewares
 export const store = createStore(
-  reducers,
-  composeEnhancers(applyMiddleware(routerMiddleware(history)))
+  connectRouter(history)(reducers), // new root reducer with router state
+  {},
+  composeEnhancers(
+    applyMiddleware(
+      routerMiddleware(history) // for dispatching history actions
+      // ... other middlewares ...
+    )
+  )
 )
 
-const handleHot = (hmr: any, store: any) => {
+export const handleHot = (hmr: any, store: any) => {
   if (hmr) {
     hmr.accept('reducers', () => {
       store.replaceReducer(require('reducers'))
