@@ -21,6 +21,7 @@
     "ramda",
     "react",
     "redux",
+    "rxjs",
     "react-dom",
     "react-redux",
     "react-router",
