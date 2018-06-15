@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
-import * as TestReducer from 'reducers/test'
+import * as FuckOffReducer from 'reducers/fuckOff'
 import * as Types from 'types'
 
-export default combineReducers<Types.ApplicationState>({
-  test: TestReducer.state
+export default combineReducers<Types.StoreState>({
+  fuckOff: FuckOffReducer.state
 })

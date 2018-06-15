@@ -15,6 +15,8 @@ export const mapDispatchToProps = (dispatch: Types.Dispatch) => ({
   onGreedClick: () => dispatch(FuckOffActions.greedRequest('PHZ', 'LAURI'))
 })
 
+const importantImage = require('images/klaus.jpg')
+
 // This is a hack to extract types
 // Compiler will run the code as it will interprit false as true
 // but when actually running the code mapStateToProps and mapDispatchToProps
@@ -50,6 +52,7 @@ export const HomeView: React.ComponentClass<Props> = enhance(
             ClickMe
           </div>
           <div key={2}>{this.props.searchString}</div>
+          <img src={importantImage} />
         </div>
       )
     }
