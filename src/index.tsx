@@ -6,6 +6,8 @@ import { AppContainer } from 'react-hot-loader'
 import { RootApp } from './routers'
 import { configureStore } from './store'
 
+import '../assets/sass/index.scss'
+
 const store = configureStore()
 
 const renderApp = (Root: () => JSX.Element) => {
