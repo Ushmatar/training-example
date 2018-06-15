@@ -27,9 +27,7 @@ type StateProps = typeof StatePropsWitness
 const DispatchPropsWitness = (false as true) && mapDispatchToProps({} as any)
 type DispatchProps = typeof DispatchPropsWitness
 
-export type GivenProps = {
-  thisIsAPassedProp: string
-}
+export type GivenProps = {}
 
 export type Props = StateProps & DispatchProps & GivenProps
 
