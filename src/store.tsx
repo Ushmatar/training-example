@@ -1,7 +1,11 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import { connectRouter, routerMiddleware } from 'connected-react-router'
 import createHistory from 'history/createBrowserHistory'
+import { createEpicMiddleware } from 'redux-observable'
+
 import reducers from 'reducers'
+import { epics } from 'epics'
+import { create } from 'domain'
 
 export const history = createHistory()
 
@@ -13,8 +17,9 @@ export const store = createStore(
   {},
   composeEnhancers(
     applyMiddleware(
-      routerMiddleware(history) // for dispatching history actions
+      routerMiddleware(history), // for dispatching history actions
       // ... other middlewares ...
+      createEpicMiddleware(epics)
     )
   )
 )

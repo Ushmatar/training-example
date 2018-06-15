@@ -6,9 +6,7 @@ import { ActionsObservable } from 'redux-observable'
 import * as TestEpics from './test'
 import * as Types from 'types'
 
-export const epic = (
+export const epics = (
   action$: ActionsObservable<Types.AppAction>,
   store: Types.Store
 ) => combineEpics(TestEpics.getGreedText)(action$, store)
-
-export default epic

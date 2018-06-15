@@ -20,9 +20,10 @@ export function getGreedText(
     .mergeMap(request =>
       ajax({
         headers: {
-          'Content-Type': 'application/json'
+          Accept: 'application/json'
         },
         method: 'GET',
+        crossDomain: true,
         url: `https://www.foaas.com/greed/${request.noun}/${request.from}`
       })
         .flatMap(({ response }: AjaxResponse) => {

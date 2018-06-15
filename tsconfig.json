@@ -26,6 +26,7 @@
     "react-redux",
     "react-router",
     "react-router-redux",
+    "redux-observable",
     "recompose"
   ],
   "include": ["src/**/*"],
