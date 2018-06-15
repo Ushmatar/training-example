@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import * as Types from 'types'
-import * as FuckOffActions from 'actions/fuckOff'
+import { Link } from 'react-router-dom'
 
 import './styles.scss'
 
@@ -9,11 +9,7 @@ export const mapStateToProps = ({ fuckOff }: Types.StoreState) => {
   return { searchString: fuckOff.searchString }
 }
 
-export const mapDispatchToProps = (dispatch: Types.Dispatch) => ({
-  setSearchString: (search: string) =>
-    dispatch(FuckOffActions.setSearchString(search)),
-  onGreedClick: () => dispatch(FuckOffActions.greedRequest('PHZ', 'LAURI'))
-})
+export const mapDispatchToProps = (dispatch: Types.Dispatch) => ({})
 
 const importantImage = require('images/klaus.jpg')
 
@@ -41,18 +37,9 @@ export const HomeView: React.ComponentClass<Props> = enhance(
     render() {
       return (
         <div className="home-view-component">
-          <div
-            style={{ cursor: 'pointer' }}
-            key={1}
-            onClick={() => {
-              this.props.setSearchString(this.props.searchString + 'more')
-              this.props.onGreedClick()
-            }}
-          >
-            ClickMe
-          </div>
-          <div key={2}>{this.props.searchString}</div>
+          <div>Welcome to React Training!</div>
           <img src={importantImage} />
+          <Link to="/fuck-off">Click me</Link>
         </div>
       )
     }

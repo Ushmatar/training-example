@@ -5,4 +5,18 @@
   & img {
     width: 20rem;
   }
+
+  & div:first-of-type {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  & a {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: lightgreen;
+    border-radius: 0.4rem;
+    border: 0.1rem solid;
+    text-decoration: none;
+    color: black;
+  }
 }
