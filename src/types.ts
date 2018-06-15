@@ -1,8 +1,8 @@
-import * as TestReducer from 'reducers/test'
+import * as FuckOffReducer from 'reducers/fuckOff'
 import * as ActionTypes from 'actions'
 
 export type StoreState = {
-  test: TestReducer.State
+  fuckOff: FuckOffReducer.State
 }
 
 export type AppAction = ActionTypes.AllActions

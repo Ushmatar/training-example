@@ -1,18 +1,18 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import * as Types from 'types'
-import * as TestActions from 'actions/test'
+import * as FuckOffActions from 'actions/fuckOff'
 
 import './styles.scss'
 
-export const mapStateToProps = ({ test }: Types.StoreState) => {
-  return { searchString: test.searchString }
+export const mapStateToProps = ({ fuckOff }: Types.StoreState) => {
+  return { searchString: fuckOff.searchString }
 }
 
 export const mapDispatchToProps = (dispatch: Types.Dispatch) => ({
   setSearchString: (search: string) =>
-    dispatch(TestActions.setSearchString(search)),
-  onGreedClick: () => dispatch(TestActions.greedRequest('PHZ', 'LAURI'))
+    dispatch(FuckOffActions.setSearchString(search)),
+  onGreedClick: () => dispatch(FuckOffActions.greedRequest('PHZ', 'LAURI'))
 })
 
 // This is a hack to extract types

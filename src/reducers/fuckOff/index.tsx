@@ -1,5 +1,5 @@
 import { Lens } from 'monocle-ts'
-import * as ActionTypes from 'actions/test/types'
+import * as ActionTypes from 'actions/fuckOff/types'
 
 export type State = {
   searchString: string

@@ -6,8 +6,10 @@ import 'rxjs'
 import { ajax } from 'rxjs/observable/dom/ajax'
 import * as Types from 'types'
 import { ActionsObservable } from 'redux-observable'
-import * as ActionTypes from 'actions/test/types'
-import * as Actions from 'actions/test'
+import * as ActionTypes from 'actions/fuckOff/types'
+import * as Actions from 'actions/fuckOff'
+
+// https://www.foaas.com/ <- its a very useful service
 
 export function getGreedText(
   action$: ActionsObservable<Types.AppAction>,
