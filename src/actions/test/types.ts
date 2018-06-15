@@ -1,3 +1,5 @@
+import * as t from 'io-ts'
+
 export const SET_SEARCH_STRING = '@test/SET_SEARCH_STRING'
 
 export const GREED_REQUEST = '@test/GREED_REQUEST'
@@ -9,6 +11,13 @@ export type SetSearchString = {
   searchString: string
 }
 
+export const iFOAASResponse = t.interface({
+  message: t.string,
+  subtitle: t.string
+})
+
+export type FOAASResponse = t.TypeOf<typeof iFOAASResponse>
+
 export type GreedRequest = {
   type: typeof GREED_REQUEST
   noun: string
@@ -17,6 +26,7 @@ export type GreedRequest = {
 
 export type GreedSuccess = {
   type: typeof GREED_SUCCESS
+  data: FOAASResponse
 }
 
 export type GreedFailure = {

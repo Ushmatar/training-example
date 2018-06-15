@@ -20,9 +20,12 @@ export function greedRequest(
   }
 }
 
-export function greedSuccess(): ActionTypes.GreedSuccess {
+export function greedSuccess(
+  data: ActionTypes.FOAASResponse
+): ActionTypes.GreedSuccess {
   return {
-    type: ActionTypes.GREED_SUCCESS
+    type: ActionTypes.GREED_SUCCESS,
+    data
   }
 }
 

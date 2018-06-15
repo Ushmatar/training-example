@@ -27,11 +27,13 @@ export function getGreedText(
         url: `https://www.foaas.com/greed/${request.noun}/${request.from}`
       })
         .flatMap(({ response }: AjaxResponse) => {
-          const validation = t.validate(response.data, t.string)
-          return Observable.of(Actions.greedSuccess())
+          const validation = t.validate(response, ActionTypes.iFOAASResponse)
           const action: ActionTypes.Action = validation.fold<
             ActionTypes.Action
-          >(e => Actions.greedFailure('Error'), data => Actions.greedSuccess())
+          >(
+            e => Actions.greedFailure('Error'),
+            data => Actions.greedSuccess(data)
+          )
           return Observable.of(action)
         })
         .catch(e => {
