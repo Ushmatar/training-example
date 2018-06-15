@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import * as Types from 'types'
 import * as TestActions from 'actions/test'
 
+import './styles.scss'
+
 export const mapStateToProps = ({ test }: Types.StoreState) => {
   return { searchString: test.searchString }
 }
@@ -12,6 +14,11 @@ export const mapDispatchToProps = (dispatch: Types.Dispatch) => ({
     dispatch(TestActions.setSearchString(search)),
   onGreedClick: () => dispatch(TestActions.greedRequest('PHZ', 'LAURI'))
 })
+
+// This is a hack to extract types
+// Compiler will run the code as it will interprit false as true
+// but when actually running the code mapStateToProps and mapDispatchToProps
+// are not called with wrong params
 const StatePropsWitness = (false as true) && mapStateToProps({} as any)
 type StateProps = typeof StatePropsWitness
 
@@ -30,20 +37,21 @@ const enhance = connect(
 export const HomeView: React.ComponentClass<Props> = enhance(
   class HomeViewComponent extends React.PureComponent<Type, {}> {
     render() {
-      return [
-        <div
-          style={{ cursor: 'pointer' }}
-          key={1}
-          onClick={() => {
-            this.props.setSearchString(this.props.searchString + 'more')
-            this.props.onGreedClick()
-          }}
-          className="home-view-component"
-        >
-          ClickMe
-        </div>,
-        <div key={2}>{this.props.searchString}</div>
-      ]
+      return (
+        <div className="home-view-component">
+          <div
+            style={{ cursor: 'pointer' }}
+            key={1}
+            onClick={() => {
+              this.props.setSearchString(this.props.searchString + 'more')
+              this.props.onGreedClick()
+            }}
+          >
+            ClickMe
+          </div>
+          <div key={2}>{this.props.searchString}</div>
+        </div>
+      )
     }
   }
 )
