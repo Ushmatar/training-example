@@ -6,10 +6,12 @@ import { lifecycle, pure, compose } from 'recompose'
 import { Link } from 'react-router-dom'
 
 import './styles.scss'
+import { GREED_SUCCESS } from 'actions/fuckOff/types'
 
-export const mapStateToProps = ({ fuckOff }: Types.StoreState) => {
+export const mapStateToProps = (store: Types.StoreState) => {
   return {
-    searchString: fuckOff.searchString
+    searchString: store.fuckOff.searchString,
+    status: store.fuckOff.status
   }
 }
 
@@ -33,7 +35,7 @@ export type Props = StateProps & DispatchProps & GivenProps
 
 export const lifecycles = lifecycle<Props, {}>({
   componentDidMount() {
-    alert('Yo, company mounted :ok_hand:')
+    //   alert('Yo, company mounted :ok_hand:')
   }
 })
 
@@ -51,6 +53,13 @@ export const FuckOffPure: React.StatelessComponent<Props> = props => {
         value={props.searchString}
         onChange={e => onSearchStringChange(props, e)}
       />
+      <div style={{ cursor: 'pointer' }} onClick={props.onGreedClick}>
+        CLICK ME FOR FETCH
+      </div>
+      {props.status.status === 'FETCHED' && [
+        <div>{props.status.data.message}</div>,
+        <div>{props.status.data.subtitle}</div>
+      ]}
     </div>
   )
 }

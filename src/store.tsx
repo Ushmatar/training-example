@@ -5,7 +5,6 @@ import { createEpicMiddleware } from 'redux-observable'
 
 import reducers from 'reducers'
 import { epics } from 'epics'
-import { create } from 'domain'
 
 export const history = createHistory()
 
